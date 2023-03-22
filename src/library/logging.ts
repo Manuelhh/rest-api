@@ -1,3 +1,5 @@
+// loggings settings
+
 import chalk from 'chalk';
 
 export default class Logging {

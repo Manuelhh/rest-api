@@ -1,11 +1,17 @@
+// func
 import express from 'express';
+// database connection
 import mongoose from 'mongoose';
+// server
 import http from 'http';
+// logs
 import Logging from './src/library/logging';
+// access config vars
 import { config } from './src/config/config';
 
 const router = express();
 
+// connection to DB
 mongoose
     .connect(config.mongo.url)
     .then(() => {
@@ -17,6 +23,7 @@ mongoose
         Logging.error(error);
     });
 
+// starting server upon successful connection to db
 const startServer = () => {
     // logging incoming request
     router.use((req, res, next) => {
