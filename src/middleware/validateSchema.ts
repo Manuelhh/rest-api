@@ -7,7 +7,7 @@ import { IBook } from '../models/Book';
 export const validateSchema = (schema: ObjectSchema) => {
     return async (req: Request, res: Response, next: NextFunction) => {
         try {
-            schema.validateAsync(req.body);
+            await schema.validateAsync(req.body);
             next();
         } catch (error) {
             Logging.error(error);
