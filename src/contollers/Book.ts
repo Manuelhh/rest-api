@@ -2,7 +2,7 @@
 import { Request, Response, NextFunction } from 'express';
 // dependencies
 import mongoose from 'mongoose';
-//Author model
+//Book model
 import Book from '../models/Book';
 
 // create a book:
