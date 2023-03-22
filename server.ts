@@ -3,7 +3,6 @@ import mongoose from 'mongoose';
 import http from 'http';
 import Logging from './src/library/logging';
 import { config } from './src/config/config';
-import nodeTest from 'node:test';
 
 const router = express();
 
@@ -25,7 +24,7 @@ const startServer = () => {
 
         res.on('finish', () => {
             // loggins response
-            Logging.info(`Incoming request -> method: [${req.method}] - url: [${req.url}] - IP: [${req.socket.remoteAddress}] - status: [${req.statusCode}]`);
+            Logging.info(`Incoming request response -> method: [${req.method}] - url: [${req.url}] - IP: [${req.socket.remoteAddress}] - status: [${req.statusCode}]`);
         });
         next();
     });
@@ -46,8 +45,18 @@ const startServer = () => {
     });
 
     // routes
-    // on progress
 
     // healthckeck
-    router.get('/ping', (req, res, nest) => res.json(200).json({ message: 'pong' }));
+    router.get('/ping', (req, res, next) => {
+        return res.status(200).json({ message: 'pong' });
+    });
+
+    // error handling
+    router.use((req, res, next) => {
+        const error = new Error('not found');
+        Logging.error(error);
+        return res.status(404).json({ message: error.message });
+    });
+
+    http.createServer(router).listen(config.server.port, () => Logging.info(`Server is running on port ${config.server.port}`));
 };
