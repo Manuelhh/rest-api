@@ -8,6 +8,8 @@ import http from 'http';
 import Logging from './src/library/logging';
 // access config vars
 import { config } from './src/config/config';
+// routes
+import authorRouter from './src/routes/Author';
 
 const router = express();
 
@@ -52,10 +54,11 @@ const startServer = () => {
     });
 
     // routes
+    router.use('/authors', authorRouter);
 
-    // healthckeck
-    router.get('/ping', (req, res, next) => {
-        return res.status(200).json({ message: 'pong' });
+    // healthcheck
+    router.get('/', (req, res, next) => {
+        return res.status(200).json({ message: 'welcome to REST-API' });
     });
 
     // error handling
