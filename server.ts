@@ -11,7 +11,6 @@ import { config } from './src/config/config';
 // routes
 import authorRouter from './src/routes/Author';
 import BookRouter from './src/routes/Book';
-import { appendFile } from 'fs';
 
 const router = express();
 
