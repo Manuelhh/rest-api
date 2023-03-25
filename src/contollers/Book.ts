@@ -7,12 +7,15 @@ import Book from '../models/Book';
 
 // create a book:
 const createBook = (req: Request, res: Response, next: NextFunction) => {
-    const { title, author } = req.body;
+    const { title, author, genre, sample, awards } = req.body;
 
     const book = new Book({
         _id: new mongoose.Types.ObjectId(),
         title,
-        author
+        author,
+        genre,
+        sample,
+        awards
     });
 
     return book
