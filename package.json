@@ -5,7 +5,7 @@
     "main": "server.ts",
     "scripts": {
         "build": "rm -rf build/ && tsc",
-        "start": "node build/server.js"
+        "start": "node dist/server.js"
     },
     "author": "Manuel H Hinojosa.",
     "license": "ISC",
