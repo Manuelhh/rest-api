@@ -2,7 +2,7 @@
     "name": "rest-api",
     "version": "1.0.0",
     "description": "REST API An application programming interface made publicly available for software developers",
-    "main": "server.js",
+    "main": "server.ts",
     "scripts": {
         "build": "rm -rf build/ && tsc",
         "start": "node dist/server.js"
