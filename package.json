@@ -4,7 +4,7 @@
     "description": "REST API An application programming interface made publicly available for software developers",
     "main": "server.ts",
     "scripts": {
-        "build": "rm -rf build/ && tsc",
+        "build": "rm -rf dist/ && tsc",
         "start": "node dist/server.js"
     },
     "author": "Manuel H Hinojosa.",
