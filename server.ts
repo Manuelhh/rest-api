@@ -70,5 +70,5 @@ const startServer = () => {
         return res.status(404).json({ message: error.message });
     });
 
-    http.createServer(router).listen(config.server.port, () => Logging.info(`Server is running on port ${config.server.port}`));
+    http.createServer(router).listen(3000, () => Logging.info(`Server is running on port 3000`));
 };

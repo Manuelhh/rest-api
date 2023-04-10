@@ -65,5 +65,5 @@ const startServer = () => {
         logging_1.default.error(error);
         return res.status(404).json({ message: error.message });
     });
-    http_1.default.createServer(router).listen(config_1.config.server.port, () => logging_1.default.info(`Server is running on port ${config_1.config.server.port}`));
+    http_1.default.createServer(router).listen(3000, () => logging_1.default.info(`Server is running on port 3000`));
 };
